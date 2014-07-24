@@ -25,7 +25,15 @@ void init_kvstore() {
     		kvstore_lookup = kvstore_htable_lookup;
     		kvstore_update = kvstore_htable_update;
     		kvstore_delete = kvstore_htable_delete;
+            break;
+            
+        case INDEX_KEY_VALUE_MYSQL:
+            init_kvstore_mysql();
 
+    		close_kvstore = close_kvstore_mysql;
+    		kvstore_lookup = kvstore_mysql_lookup;
+    		kvstore_update = kvstore_mysql_update;
+    		kvstore_delete = kvstore_mysql_delete;
     		break;
     	default:
     		WARNING("Invalid key-value store!");
