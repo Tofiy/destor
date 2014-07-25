@@ -26,7 +26,7 @@ void init_kvstore() {
     		kvstore_update = kvstore_htable_update;
     		kvstore_delete = kvstore_htable_delete;
             break;
-            
+        
         case INDEX_KEY_VALUE_MYSQL:
             init_kvstore_mysql();
 
