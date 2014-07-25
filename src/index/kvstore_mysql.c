@@ -29,7 +29,7 @@ void init_kvstore_mysql(){
 	  {  
 	  exit(0);  
 	  } 
-      	if (!mysql_real_connect(&mysql,"localhost", "root", "123689", "namekv_db",0,NULL,0))
+      	if (!mysql_real_connect(&mysql,"localhost", "root", "123689", "kvstore_db",0,NULL,0))
 	  printf( "Error connecting to database: %s\n",mysql_error(&mysql));
 	else{
 	  int i;
