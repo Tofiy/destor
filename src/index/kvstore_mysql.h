@@ -2,6 +2,7 @@
 #define KVSTORE_MYSQL_H_
 
 #define MAX_VALUE_NUM 4
+#define TEMPORARY_ID -1
 #define NUM_HASHES 4
 #define SETBIT(a, n) (a[n/CHAR_BIT] |= (1<<(n%CHAR_BIT)))
 #define GETBIT(a, n) (a[n/CHAR_BIT] & (1<<(n%CHAR_BIT)))
