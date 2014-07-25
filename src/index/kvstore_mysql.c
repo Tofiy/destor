@@ -5,7 +5,7 @@
 #include <limits.h>
 #include <stdint.h>
 #include "kvstore_mysql.h"
-#include "bloom_filter.h"
+#include "../utils/bloom_filter.h"
 
 static MYSQL mysql;
 unsigned char *filter;
@@ -13,7 +13,7 @@ int64_t *values;
 
 void init_kvstore_mysql(){
 	mysql_init(&mysql);
-	filter=(char *)calloc((SIZE+CHAR_BIT-1)/CHAR_BIT,sizeof(char));
+	filter=(char *)calloc(FILTER_SIZE_BYTES,sizeof(char));
 	 if (filter == NULL)  
 	  {  
 	  exit(0);  
@@ -22,7 +22,7 @@ void init_kvstore_mysql(){
 	  printf( "Error connecting to database: %s\n",mysql_error(&mysql));
 	else{
 	  int i;
-	  for(i=0;i<(SIZE+CHAR_BIT-1)/CHAR_BIT;i++) {  
+	  for(i=0;i<FILTER_SIZE_BYTES;i++) {  
         		filter[i]=0;  
    		  } 
 	FILE *fp;
@@ -31,7 +31,7 @@ void init_kvstore_mysql(){
 	  exit(0);  
 	  } 
 	  fseek(fp, 0, SEEK_SET);  
-	  fread(filter, (SIZE+CHAR_BIT-1)/CHAR_BIT, sizeof(char), fp);  
+	  fread(filter, FILTER_SIZE_BYTES, sizeof(char), fp);  
 	  fclose(fp); 
 	   } 
 }	 
@@ -44,7 +44,7 @@ void close_kvstore_mysql(){
     	  exit(0);  
 	  }  
 	rewind(fp);  
-	fwrite(filter, (SIZE+CHAR_BIT-1)/CHAR_BIT, sizeof(char), fp);  
+	fwrite(filter, FILTER_SIZE_BYTES, sizeof(char), fp);  
 	fclose(fp);
 	free(filter);
 	free(values);
