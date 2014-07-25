@@ -19,7 +19,7 @@ void init_kvstore() {
 
     switch(destor.index_key_value_store){
     	case INDEX_KEY_VALUE_HTABLE:
-            init_kvstore_htable();
+                init_kvstore_htable();
 
     		close_kvstore = close_kvstore_htable;
     		kvstore_lookup = kvstore_htable_lookup;
@@ -28,7 +28,7 @@ void init_kvstore() {
             break;
         
         case INDEX_KEY_VALUE_MYSQL:
-            init_kvstore_mysql();
+                init_kvstore_mysql();
 
     		close_kvstore = close_kvstore_mysql;
     		kvstore_lookup = kvstore_mysql_lookup;
