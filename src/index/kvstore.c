@@ -19,7 +19,7 @@ void init_kvstore() {
 
     switch(destor.index_key_value_store){
     	case INDEX_KEY_VALUE_HTABLE:
-    		init_kvstore_htable();
+            init_kvstore_htable();
 
     		close_kvstore = close_kvstore_htable;
     		kvstore_lookup = kvstore_htable_lookup;
