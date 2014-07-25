@@ -8,9 +8,9 @@ extern void kvstore_htable_delete(char* key, int64_t id);
 
 extern void init_kvstore_mysql();
 extern void close_kvstore_mysql();
-extern int64_t* kvstore_mysql_lookup(char* key);
-extern void kvstore_mysql_update(char* key, int64_t id);
-extern void kvstore_mysql_delete(char* key, int64_t id);
+extern int64_t* kvstore_mysql_lookup(char* theKey);
+extern void kvstore_mysql_update(char* theKey, int64_t theValue);
+extern void kvstore_mysql_delete(char* theKey, int64_t theValue);
 
 /*
  * Mapping a fingerprint (or feature) to the prefetching unit.
