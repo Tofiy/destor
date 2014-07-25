@@ -2,9 +2,7 @@
 #define KVSTORE_MYSQL_H_
 
 #define MAX_VALUE_NUM 4
-#define TEMPORARY_ID -1
-
-#define SIZE 1048576
+#define TEMPORARY_ID (-1)l
 
 void init_kvstore_mysql_();
 void close_kvstore_mysql_();
